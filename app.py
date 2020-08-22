@@ -19,8 +19,11 @@ def framework():
 
 @app.route('/form')
 def form():
-    res = request.args.get('keyword') # args : arguments 입력인자. 매개변수를 입력할 때 사용하는 말
-    print(res) # args : arguments 입력인자. 매개변수를 입력할 때 사용하는 말
+    num1 = request.args.get('num1') # 처음 접근 None
+    num2 = request.args.get('num2') 
+    if num1 and num2:
+        total = float(num1) + float(num2)
+        print(total)
     return render_template("form.html")
 
 
